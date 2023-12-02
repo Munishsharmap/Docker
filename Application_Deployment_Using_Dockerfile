@@ -1,0 +1,59 @@
+Docker Project:2  --> Application Deployment Using Dockerfile
+==============================================================
+What is Dockerfile?
+
+Docker file is a file it contains set of instructions to build docker image.
+==> to write Dockerfile we will use below keywords <====
+
+1) FROM --> is used to specify base image to create our docker image.  EX: FROM Ubuntu:20.04
+
+2) MAINTAINER --> is used to specify author of Dockerfile. EX: RAM  ram@gmail.com
+
+3) RUN --> is used to specify instructions to execute when docker image is creating. EX: RUN apt-get update -y
+
+4) COPY --> is used to specify copy of the files from host machine to container.EX: copy python-app.py /usr/app
+
+5) WORKDIR --> is used to specify working directory location to process for the docker file instructions 
+                                                                               EX: WORKDIR /usr/app
+6) EXPOSE --> is used to specify on which port number our container will run. EX: EXPOSE 8080
+
+7) ENTRYPOINT --> is used to run our application code in docker container. EX: ENTRYPOINT ["python"."app.py"]
+
+8) USER --> is used to specify the user account to execute dockerfile instructions. EX: USER root, USER ec2-user
+
+9) ARG --> is used pass the Dynamic value. EX: ARG branch-name
+
+10) VOLUME --> is used to specify Docker volume for storing the data. EX: VOLUME mysql-db-data
+
+11) CMD --> is used to specify instructions to execute when docker container is creating.
+
+###################################################################
+Create a Docker file to Deploy Application on Container
+
+FROM ubuntu
+RUN apt update
+RUN apt install apache2 -y
+RUN apt install apache2-utils -y
+RUN apt clean
+COPY /source/ /var/www/html/
+EXPOSE 80
+ENTRYPOINT ["apache2ctl"]
+CMD ["-DFOREGROUND"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
