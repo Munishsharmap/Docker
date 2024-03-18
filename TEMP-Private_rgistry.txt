@@ -13,3 +13,5 @@ vi daemon.json
 {
         "insecure-registries" : ["172.31.44.179:5000"]
 }
+
+command: docker container run -itd -p 5000:5000 --name simple_registry registry
